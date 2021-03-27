@@ -2,7 +2,7 @@ const puppeteer = require("puppeteer");
 
 async function getPollenInfo() {
   const browser = await puppeteer.launch();
-  const selector = "";
+  const selector = ".pollen-telop";
   let pollenInfo = "Not found";
 
   try {
