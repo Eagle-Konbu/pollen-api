@@ -64,10 +64,11 @@ functions:
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details
-#    events:
-#      - httpApi:
-#          path: /users/create
-#          method: get
+    events:
+      - http:
+          path: /pollen
+          method: get
+          private: true
 #      - websocket: $connect
 #      - s3: ${env:BUCKET}
 #      - schedule: rate(10 minutes)
@@ -111,4 +112,11 @@ functions:
 #  Outputs:
 #     NewOutput:
 #       Description: "Description for the output"
-#       Value: "Some output value"
+#       Value: "Some output value"]
+
+custom:
+  apiKeys:
+    - name: main
+
+plugins:
+  - serverless-add-api-key
