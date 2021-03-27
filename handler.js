@@ -1,7 +1,7 @@
-'use strict';
+"use strict";
 
 module.exports.getPollenInfo = async (event) => {
-  const pollenInfo = await require('./src/get-pollen-info').getPollenInfo()
+  const pollenInfo = await require("./src/get-pollen-info").getPollenInfo();
   return {
     statusCode: 200,
     body: JSON.stringify(
