@@ -10,7 +10,7 @@ async function getPollenInfo() {
 
     await page.goto("https://tenki.jp/pollen/3/17/4610/14100/");
 
-    pollenInfo = await page.$eval(selector, (item) => item.textContent);
+    pollenInfo = await page.$$eval(selector, (list) => list[0].textContent);
   } catch (error) {
     console.log(error);
   } finally {
