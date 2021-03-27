@@ -1,12 +1,21 @@
-const puppeteer = require('puppeteer')
+const puppeteer = require("puppeteer");
 
 async function getPollenInfo() {
-    const browser = await puppeteer.launch({
-        headless: false
-    })
-    const page = await browser.newPage()
+  const browser = await puppeteer.launch();
+  const selector = "";
+  let pollenInfo = "Not found";
 
-    await page.goto("https://tenki.jp/pollen/3/17/4610/14100/")
+  try {
+    const page = await browser.newPage();
 
-    await browser.close()
+    await page.goto("https://tenki.jp/pollen/3/17/4610/14100/");
+
+    pollenInfo = await page.$eval(selector, (item) => item.textContent);
+  } catch (error) {
+    console.log(error);
+  } finally {
+    await browser.close();
+  }
+
+  return pollenInfo;
 }
